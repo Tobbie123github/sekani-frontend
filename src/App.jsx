@@ -1,7 +1,7 @@
 import Header from './components/Header';
 import AnimRoutes from './components/AnimRoutes';
 
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
 import {AuthProvider} from './context/AuthContext';
 
 import {motion} from 'framer-motion';
@@ -9,12 +9,15 @@ import {motion} from 'framer-motion';
 const App = () => {
   return (
     <>
+    <Router>
      <AuthProvider>
-      <Router>
+      
         <Header />
         <AnimRoutes />
-      </Router>
+      
        </AuthProvider>
+
+       </Router>
    
     </>
   );

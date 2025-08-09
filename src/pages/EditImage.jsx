@@ -71,7 +71,7 @@ const EditImage = () => {
 
       
 
-      await axios.put(`http://localhost:5000/api/images/${id}`, data, {
+      await axios.put(`https://sekani-backend.onrender.com/api/images/${id}`, data, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'multipart/form-data',
