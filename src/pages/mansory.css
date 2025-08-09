@@ -1,0 +1,15 @@
+/* masonry.css */
+.my-masonry-grid {
+  display: flex;
+  
+  width: auto;
+}
+.my-masonry-grid_column {
+  padding-left: 15px; /* gutter size */
+  background-clip: padding-box;
+}
+
+/* Style for each item inside the column */
+.my-masonry-grid_column > div { 
+  margin-bottom: 15px;
+}

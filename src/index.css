@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body{
+    font-family: "Poppins", sans-serif;
+  @apply bg-mybackground dark:bg-gray-900
+  }
+  .h1 {
+    @apply text-[50px] lg:text-[65px] font-primary  font-medium capitalize leading-[120%] tracking-[-0.05em] mb-2;
+  }
+  
+  .btn {
+    @apply rounded-3xl py-[18px] px-[45px] h-[54px] flex items-center justify-center text-sm lg:text-base font-primary font-semibold bg-primary text-white;
+  }
+  .scroll-color{
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+}
+
+
+.design{
+  overflow: hidden;
+  border-radius:51% 49% 68% 32% / 35% 34% 66% 65%   ;
+ 
+}
+/* .design2{
+  overflow: hidden;
+  border-radius:51% 49% 68% 32% / 35% 34% 66% 65%   ;
+} */
