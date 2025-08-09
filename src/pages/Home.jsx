@@ -22,7 +22,7 @@ const Home = () => {
   animate={{ opacity: 1, y:0}}
   exit={{opacity: 0, y:'-50%'}}
   transition={transition1}
-  className="mt-[-9rem]  md:mt-0 md:ml-11 md:w-[45%] z-10 flex flex-col justify-center items-center md:items-start p-8">
+  className="mt-[-15rem]  md:mt-0 md:ml-11 md:w-[45%] z-10 flex flex-col justify-center items-center md:items-start p-8">
           <h1 className="h1 dark:text-gray-300">Capturing <br />Moments</h1>
     <p className="text-[16px] md:text-[19px] font-primary mb-4 md:mb-9  text-center md:text-start dark:text-gray-200">
       Embark on a visual journey with our photography, where moments are not just captured but crafterd into timeless stories
