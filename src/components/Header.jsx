@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import MobileNav from './MobileNav';
 import Logo from '../images/logo.png';
 import { Link } from 'react-router-dom';
-import DarkMode from './DarkMode';
+
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -59,7 +59,7 @@ const Header = () => {
 
       <Socials />
       <MobileNav />
-      <DarkMode />
+   
     </header>
   );
 };

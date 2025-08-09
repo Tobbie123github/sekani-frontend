@@ -10,7 +10,7 @@ const About = () => {
     animate={{opacity: 1, y: 0}}
     exit={{opacity: 0, y: '100%'}}
     transition={transition1}
-    className="h-screen overflow-hidden relative"
+    className="h-screen overflow-hidden relative mt-10"
     >
      <div className="container mx-auto pt-[80px] flex flex-col-reverse md:flex-row-reverse lg:flex-row h-full items-center justify-center  md:gap-x-24 text-center lg:pt-16">
     
