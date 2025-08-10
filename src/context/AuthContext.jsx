@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    // Setup axios interceptor for 401 globally
+    
     const interceptor = axios.interceptors.response.use(
       response => response,
       error => {
@@ -41,7 +41,7 @@ export const AuthProvider = ({ children }) => {
       }
 
       try {
-        const res = await axios.get('/api/auth/verify-token', {
+        const res = await axios.get('https://sekani-backend.onrender.com/api/auth/verify-token', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setUser(res.data);
