@@ -4,20 +4,17 @@ import AnimRoutes from './components/AnimRoutes';
 import { HashRouter as Router, Route } from 'react-router-dom';
 import {AuthProvider} from './context/AuthContext';
 
-import {motion} from 'framer-motion';
+// import {motion} from 'framer-motion';
 
 const App = () => {
   return (
     <>
     <Router>
-     <AuthProvider>
-      
+      <AuthProvider>
         <Header />
         <AnimRoutes />
-      
-       </AuthProvider>
-
-       </Router>
+      </AuthProvider>
+    </Router>
    
     </>
   );
