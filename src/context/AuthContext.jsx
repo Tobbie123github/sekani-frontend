@@ -41,7 +41,7 @@ export const AuthProvider = ({ children }) => {
       }
 
       try {
-        const res = await axios.get('/api/auth/verify-token', {
+        const res = await axios.get('https://sekani-backend.onrender.com/api/auth/verify-token', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setUser(res.data);
