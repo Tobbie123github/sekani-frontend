@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import Loading from '../components/Loading';
+import { toast } from 'react-toastify';
 
 const categories = ['Event', 'Portrait', 'Wedding'];
 
@@ -78,11 +79,11 @@ const EditImage = () => {
         },
       });
 
-      alert('Image updated successfully!');
+      toast.success('Image updated successfully!');
       navigate('/dashboard');
     } catch (err) {
       console.error('Failed to update image:', err);
-      alert('Update failed. Please try again.');
+      toast.error('Update failed. Please try again.');
     } finally {
       setLoading(false);
     }

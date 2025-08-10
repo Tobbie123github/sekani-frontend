@@ -12,7 +12,7 @@
   }
   
   .btn {
-    @apply rounded-3xl py-[18px] px-[45px] h-[54px] flex items-center justify-center text-sm lg:text-base font-primary font-semibold bg-primary text-white;
+    @apply rounded-3xl py-[10px] md:py-[18px] px-[30px] h-[54px] flex items-center justify-center text-sm lg:text-base font-primary font-semibold bg-primary text-white;
   }
   .scroll-color{
     background-color: rgba(0, 0, 0, 0.05);

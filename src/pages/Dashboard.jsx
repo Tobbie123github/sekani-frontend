@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 import Loading from '../components/Loading';
 import { BiPlus } from 'react-icons/bi';
+import { toast } from 'react-toastify';
 
 const Dashboard = () => {
   const [items, setItems] = useState([]);
@@ -51,12 +52,11 @@ const Dashboard = () => {
       await axios.delete(`https://sekani-backend.onrender.com/api/images/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
-     window.onload
       setItems((prev) => prev.filter((item) => item._id !== id));
-
+       toast.success('Image deleted successfully!');
     } catch (err) {
       console.error('Failed to delete image item:', err);
-      alert('Delete failed. Please try again.');
+      toast.error('Delete failed. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -80,7 +80,13 @@ const Dashboard = () => {
     });
   };
 
-  if (loading && !items.length) {
+  const handleLogout = () => {
+    setLoading(true);
+    localStorage.removeItem('token');
+    navigate('/login');
+  };
+
+  if (loading) {
     return <Loading />
   }
 
@@ -89,7 +95,9 @@ const Dashboard = () => {
       {/* Dashboard Header */}
       <div className="flex md:p-6 flex-col md:flex-row justify-between  items-center  rounded-lg shadow-md mb-6">
         <h1 className="dark:text-gray-300 text-3xl  font-bold text-gray-800 mb-4 md:mb-0">Image Dashboard</h1>
-        <Link to={"/addImage"} >
+        
+        <div className="flex mt- gap-4">
+                <Link to={"/addImage"} >
         <button
           onClick={handleAddClick}
           className="btn mb-5"
@@ -99,6 +107,23 @@ const Dashboard = () => {
          <BiPlus className='text-xl'/> Add New Image
         </button>
         </Link>
+
+          
+        <button
+          onClick={handleLogout}
+          className="btn bg-red-700"
+          disabled={loading}
+          type="button"
+        >
+         Logout
+        </button>
+      
+
+
+
+        </div>
+        
+        
       </div>
 
       {/* Images Grid */}

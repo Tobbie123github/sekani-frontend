@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Loading from "../components/Loading";
 import { useAuth } from '../context/AuthContext';
+import { toast } from "react-toastify";
 
 
 export default function Login() {
@@ -26,7 +27,7 @@ export default function Login() {
       setLoading(false);
       setMessage("Login successful!");
       localStorage.setItem("token", res.data.token);
-
+       toast.success("Login successful!");
      login(res.data.token, res.data.user); 
       navigate("/dashboard");
     } catch (err) {
@@ -49,7 +50,7 @@ export default function Login() {
             Login
           </h2>
 
-          {message && (
+          {/* {message && (
             <p
               className={`text-center mb-4 px-4 py-2 rounded text-white ${
                 message.toLowerCase().includes("successful")
@@ -59,7 +60,7 @@ export default function Login() {
             >
               {message}
             </p>
-          )}
+          )} */}
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>

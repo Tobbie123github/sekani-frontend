@@ -3,8 +3,8 @@ import AnimRoutes from './components/AnimRoutes';
 
 import { HashRouter as Router, Route } from 'react-router-dom';
 import {AuthProvider} from './context/AuthContext';
+import { ToastContainer } from 'react-toastify';
 
-// import {motion} from 'framer-motion';
 
 const App = () => {
   return (
@@ -13,6 +13,16 @@ const App = () => {
       <AuthProvider>
         <Header />
         <AnimRoutes />
+         <ToastContainer 
+        position="top-right" 
+        autoClose={3000} 
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        pauseOnHover
+        draggable
+        theme="colored"
+      />
       </AuthProvider>
     </Router>
    

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import {IoMdClose} from "react-icons/io";
 import {CgMenuRight} from "react-icons/cg";
-
+import { useAuth } from "../context/AuthContext";
 
 import {Link} from 'react-router-dom';
 import { IoColorPalette } from "react-icons/io5";
@@ -25,6 +25,9 @@ const menuVariants = {
 
 
 const MobileNav = () => {
+
+    const {user} = useAuth()
+
    const [isOpen, setIsOpen] = useState(false);
 const [darkMode, setDarkMode] = useState(() => {
     
@@ -75,6 +78,16 @@ const [darkMode, setDarkMode] = useState(() => {
   <li className="text-2xl font-bold mb-8">
     <Link to="/contact" onClick={() => setIsOpen(false)}>Contact</Link>
   </li>
+
+ {
+    user && (
+         <li className="text-2xl font-bold mb-8">
+    <Link to="/dashboard" onClick={() => setIsOpen(false)}>Dashboard</Link>
+  </li>
+    )
+ }
+ 
+
 </ul>
         </motion.div>
     </nav>
