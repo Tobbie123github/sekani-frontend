@@ -56,7 +56,7 @@ const Header = () => {
             Contact
           </Link>
           {user && (
-            <li><Link to="/dashboard" className="text-[#000000] dark:text-gray-300 hover:text-[#B05015] transition">Dashboard</Link></li>
+            <Link to="/dashboard" className="text-[#000000] dark:text-gray-300 hover:text-[#B05015] transition">Dashboard</Link>
           )}
         </nav>
       </div>
