@@ -3,15 +3,31 @@ import sekani from "../images/freepik__upload__70788.png";
 import { motion } from "framer-motion";
 import { transition1 } from "../../transitions";
 import { BiSolidArrowFromLeft } from "react-icons/bi";
+import  {useEffect} from "react";
 
 const Home = () => {
+
+useEffect(() => {
+    const setVH = () => {
+      document.documentElement.style.setProperty(
+        "--vh",
+        `${window.innerHeight * 0.01}px`
+      );
+    };
+    setVH();
+    window.addEventListener("resize", setVH);
+
+    return () => window.removeEventListener("resize", setVH);
+  }, []);
+
+
   return (
     <motion.section
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={transition1}
-      className="section h-screen overflow-hidden hero"
+      className="h-[calc(var(--vh)*100)] overflow-hidden"
     >
       <div className="md:container mx-auto h-full relative">
         <div className="md:container flex md:flex-row h-screen relative">
