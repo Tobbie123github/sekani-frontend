@@ -34,6 +34,7 @@ export default function Login() {
       setLoading(false);
       if (err.response?.data?.msg) {
         setMessage(err.response.data.msg);
+        toast.error(err.response.data.msg);
       } else {
         setMessage("Server error. Try again later.");
       }

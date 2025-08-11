@@ -34,7 +34,7 @@ const EditImage = () => {
         });
       } catch (err) {
         console.error('Failed to fetch image item:', err);
-        alert('Failed to load image data.');
+        toast.error('Failed to load image data.');
       } finally {
         setLoading(false);
       }
