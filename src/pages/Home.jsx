@@ -11,7 +11,7 @@ const Home = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={transition1}
-      className="section h-screen overflow-hidden "
+      className="section h-screen overflow-hidden hero"
     >
       <div className="md:container mx-auto h-full relative">
         <div className="md:container flex md:flex-row h-screen relative">

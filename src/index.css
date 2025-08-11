@@ -17,6 +17,9 @@
   .scroll-color{
     background-color: rgba(0, 0, 0, 0.05);
   }
+  .hero{
+    overscroll-behavior: none;
+  }
 }
 
 

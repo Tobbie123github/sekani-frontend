@@ -57,9 +57,9 @@ const Contact = () => {
 
   return (
     <motion.section
-      initial={{ opacity: 0, y: 120 }}
+      initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -120 }}
+      exit={{ opacity: 0, y: -100 }}
       transition={transition1}
       className=" relative "
     >
@@ -130,8 +130,8 @@ const Contact = () => {
           </div>
         </div>
 
-        <div className=" mt-16 items-center">
-          <ul className="flex gap-x-10 items-center justify-self-center">
+        <div className="mt-16">
+          <ul className="flex gap-x-10 items-center justify-center">
             <li className="text-4xl text-blue-600 hover:text-secondary transition">
               <a
                 href="https://web.facebook.com/shalom.james.52"
