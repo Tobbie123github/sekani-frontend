@@ -19,7 +19,7 @@ const Dashboard = () => {
       setLoading(true);
       try {
         const res = await axios.get(
-          "https://sekani-backend.onrender.com/api/images",
+          "https://sekani-backend.onrender.com/api/images/all",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -149,7 +149,7 @@ const Dashboard = () => {
               <div className="relative h-48 overflow-hidden">
                 <img
                  loading="lazy"
-                  src={` ${item.images[imageIndexes[item._id] || 0]}?q=70&f=auto`}
+                  src={item.images[imageIndexes[item._id] || 0]}
                   alt={item.category}
                   className="w-full h-full object-cover transition-transform duration-300 ease-in-out"
                   onError={(e) => {
