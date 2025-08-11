@@ -130,9 +130,9 @@ const Contact = () => {
           </div>
         </div>
 
-        <div className=" mt-16 items-center">
+        <div className=" mt-16 items-center justify-center">
           <ul className="flex gap-x-10 items-center justify-self-center">
-            <li className="dark:text-gray-300 text-4xl text-primary hover:text-secondary transition">
+            <li className="text-4xl text-blue-600 hover:text-secondary transition">
               <a
                 href="https://web.facebook.com/shalom.james.52"
                 target="_blank"
@@ -142,7 +142,7 @@ const Contact = () => {
                 <FaFacebook />
               </a>
             </li>
-            <li className="dark:text-gray-300 text-4xl text-primary hover:text-secondary transition">
+            <li className=" text-4xl text-green-500 hover:text-secondary transition">
               <a
                 href="https://api.whatsapp.com/send?phone=8028020238"
                 target="_blank"
@@ -151,17 +151,37 @@ const Contact = () => {
                 <FaWhatsapp />
               </a>
             </li>
-            <li className="dark:text-gray-300 text-4xl text-primary hover:text-secondary transition">
+            <li className="text-4xl transition mt-2">
               <a
                 href="https://www.instagram.com/becoming_sekani/"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="inline-block"
               >
-                <FaInstagram />
+                <FaInstagram
+                  style={{
+                    fill: "url(#instagramGradient)",
+                  }}
+                />
+                <svg width="0" height="0">
+                  <defs>
+                    <linearGradient
+                      id="instagramGradient"
+                      x1="0%"
+                      y1="0%"
+                      x2="100%"
+                      y2="100%"
+                    >
+                      <stop offset="0%" stopColor="#feda75" />
+                      <stop offset="50%" stopColor="#d62976" />
+                      <stop offset="100%" stopColor="#4f5bd5" />
+                    </linearGradient>
+                  </defs>
+                </svg>
               </a>
             </li>
 
-            <li className="dark:text-gray-300 text-4xl text-primary hover:text-secondary transition">
+            <li className=" text-4xl text-[#EA4335] hover:text-secondary transition">
               <a
                 href="mailto:bookasessionwithsekani@gmail.com"
                 target="_blank"
