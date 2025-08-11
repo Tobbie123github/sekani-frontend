@@ -144,7 +144,7 @@ const Contact = () => {
             </li>
             <li className=" text-4xl text-green-500 hover:text-secondary transition">
               <a
-                href="https://api.whatsapp.com/send?phone=8028020238"
+                href="https://api.whatsapp.com/send?phone=2348028020238"
                 target="_blank"
                 rel="noopener noreferrer"
               >
