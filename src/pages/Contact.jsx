@@ -130,7 +130,7 @@ const Contact = () => {
           </div>
         </div>
 
-        <div className=" mt-16 items-center justify-center">
+        <div className=" mt-16 items-center">
           <ul className="flex gap-x-10 items-center justify-self-center">
             <li className="text-4xl text-blue-600 hover:text-secondary transition">
               <a
