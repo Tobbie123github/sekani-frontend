@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from "react";
+import axios from "axios";
 
-const categories = ['Event', 'Portrait', 'Wedding'];
+const categories = ["Event", "Portrait", "Wedding"];
 
 const AddImage = () => {
-  const [category, setCategory] = useState('');
+  const [category, setCategory] = useState("");
   const [files, setFiles] = useState([]);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState(null);
 
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem("token");
 
   const handleFileChange = (e) => {
     setFiles(e.target.files);
@@ -22,11 +22,14 @@ const AddImage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!category) {
-      setMessage({ type: 'error', text: 'Please select a category.' });
+      setMessage({ type: "error", text: "Please select a category." });
       return;
     }
     if (files.length === 0) {
-      setMessage({ type: 'error', text: 'Please select at least one image file.' });
+      setMessage({
+        type: "error",
+        text: "Please select at least one image file.",
+      });
       return;
     }
 
@@ -36,28 +39,31 @@ const AddImage = () => {
     try {
       // Prepare FormData to send files
       const formData = new FormData();
-      formData.append('category', category);
+      formData.append("category", category);
       for (let i = 0; i < files.length; i++) {
-        formData.append('images', files[i]);
+        formData.append("images", files[i]);
       }
 
-      const res = await axios.post('https://sekani-backend.onrender.com/api/images/upload', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const res = await axios.post(
+        "https://sekani-backend.onrender.com/api/images/upload",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
-      setMessage({ type: 'success', text: 'Images uploaded successfully!' });
-      setCategory('');
+      setMessage({ type: "success", text: "Images uploaded successfully!" });
+      setCategory("");
       setFiles([]);
       e.target.reset();
       // go to dashboard
-      window.location.href = "/dashboard"; 
-
+      window.location.href = "/dashboard";
     } catch (error) {
-      console.error('Upload failed:', error.response?.data || error.message);
-      setMessage({ type: 'error', text: 'Upload failed. Please try again.' });
+      console.error("Upload failed:", error.response?.data || error.message);
+      setMessage({ type: "error", text: "Upload failed. Please try again." });
     } finally {
       setLoading(false);
     }
@@ -70,7 +76,9 @@ const AddImage = () => {
       {message && (
         <div
           className={`mb-4 p-3 rounded ${
-            message.type === 'error' ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'
+            message.type === "error"
+              ? "bg-red-100 text-red-700"
+              : "bg-green-100 text-green-700"
           }`}
         >
           {message.text}
@@ -114,11 +122,9 @@ const AddImage = () => {
         <button
           type="submit"
           disabled={loading}
-          className={`btn ${
-            loading ? 'opacity-70 cursor-not-allowed' : ''
-          }`}
+          className={`btn ${loading ? "opacity-70 cursor-not-allowed" : ""}`}
         >
-          {loading ? 'Uploading...' : 'Upload'}
+          {loading ? "Uploading..." : "Upload"}
         </button>
       </form>
     </div>

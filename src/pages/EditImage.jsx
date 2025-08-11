@@ -1,31 +1,34 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { useNavigate, useParams } from 'react-router-dom';
-import Loading from '../components/Loading';
-import { toast } from 'react-toastify';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { useNavigate, useParams } from "react-router-dom";
+import Loading from "../components/Loading";
+import { toast } from "react-toastify";
 
-const categories = ['Event', 'Portrait', 'Wedding'];
+const categories = ["Event", "Portrait", "Wedding"];
 
 const EditImage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    category: '',
-    images: [], 
-    existingImages: [], 
+    category: "",
+    images: [],
+    existingImages: [],
   });
   const [loading, setLoading] = useState(false);
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
     // Fetch item details to edit
     const fetchItem = async () => {
       setLoading(true);
       try {
-        const res = await axios.get(`https://sekani-backend.onrender.com/api/images/${id}`, {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+        const res = await axios.get(
+          `https://sekani-backend.onrender.com/api/images/${id}`,
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        );
         const item = res.data;
         setFormData({
           category: item.category,
@@ -33,8 +36,8 @@ const EditImage = () => {
           existingImages: item.images || [],
         });
       } catch (err) {
-        console.error('Failed to fetch image item:', err);
-        toast.error('Failed to load image data.');
+        console.error("Failed to fetch image item:", err);
+        toast.error("Failed to load image data.");
       } finally {
         setLoading(false);
       }
@@ -61,29 +64,29 @@ const EditImage = () => {
 
     setLoading(true);
     try {
-      
       const data = new FormData();
-      data.append('category', formData.category);
+      data.append("category", formData.category);
 
-      
       formData.images.forEach((file) => {
-        data.append('images', file);
+        data.append("images", file);
       });
 
-      
+      await axios.put(
+        `https://sekani-backend.onrender.com/api/images/${id}`,
+        data,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
 
-      await axios.put(`https://sekani-backend.onrender.com/api/images/${id}`, data, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'multipart/form-data',
-        },
-      });
-
-      toast.success('Image updated successfully!');
-      navigate('/dashboard');
+      toast.success("Image updated successfully!");
+      navigate("/dashboard");
     } catch (err) {
-      console.error('Failed to update image:', err);
-      toast.error('Update failed. Please try again.');
+      console.error("Failed to update image:", err);
+      toast.error("Update failed. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -97,7 +100,6 @@ const EditImage = () => {
         <Loading />
       ) : (
         <form onSubmit={handleSubmit}>
-
           <label className="block mb-2 font-semibold">Category</label>
           <select
             name="category"
@@ -106,7 +108,9 @@ const EditImage = () => {
             required
             className="w-full mb-4 px-3 py-2 border rounded"
           >
-            <option value="" disabled>Select category</option>
+            <option value="" disabled>
+              Select category
+            </option>
             {categories.map((cat) => (
               <option key={cat} value={cat}>
                 {cat}
@@ -114,7 +118,9 @@ const EditImage = () => {
             ))}
           </select>
 
-          <label className="block mb-2 font-semibold">Upload Images (choose new files to replace)</label>
+          <label className="block mb-2 font-semibold">
+            Upload Images (choose new files to replace)
+          </label>
           <input
             type="file"
             name="images"
@@ -140,12 +146,8 @@ const EditImage = () => {
             </div>
           )}
 
-          <button
-            type="submit"
-            disabled={loading}
-            className="btn"
-          >
-            {loading ? 'Saving...' : 'Save Changes'}
+          <button type="submit" disabled={loading} className="btn">
+            {loading ? "Saving..." : "Save Changes"}
           </button>
         </form>
       )}

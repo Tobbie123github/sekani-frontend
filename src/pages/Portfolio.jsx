@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import Masonry from 'react-masonry-css';
-import { motion, AnimatePresence } from 'framer-motion';
-import axios from 'axios';
-import './mansory.css';
-import Loading from '../components/Loading';
-import Footer from '../components/Footer';
+import React, { useEffect, useState } from "react";
+import Masonry from "react-masonry-css";
+import { motion, AnimatePresence } from "framer-motion";
+import axios from "axios";
+import "./mansory.css";
+import Loading from "../components/Loading";
+import Footer from "../components/Footer";
 
 const Portfolio = () => {
   const [imagesByCategory, setImagesByCategory] = useState({});
@@ -14,21 +14,23 @@ const Portfolio = () => {
   const breakpointColumnsObj = {
     default: 3,
     1100: 2,
-    700: 1
+    700: 1,
   };
 
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const res = await axios.get('https://sekani-backend.onrender.com/api/images/all');
-        
+        const res = await axios.get(
+          "https://sekani-backend.onrender.com/api/images/all"
+        );
+
         // Group images by category
         const grouped = res.data.reduce((acc, item) => {
           if (!acc[item.category]) acc[item.category] = [];
-          item.images.forEach(img => {
+          item.images.forEach((img) => {
             acc[item.category].push({
               src: img,
-              alt: item.category
+              alt: item.category,
             });
           });
           return acc;
@@ -37,7 +39,7 @@ const Portfolio = () => {
         setImagesByCategory(grouped);
         setActiveTab(Object.keys(grouped)[0] || null);
       } catch (err) {
-        console.error('Failed to fetch images:', err);
+        console.error("Failed to fetch images:", err);
       } finally {
         setLoading(false);
       }
@@ -47,7 +49,7 @@ const Portfolio = () => {
   }, []);
 
   if (loading) {
-    return <Loading />
+    return <Loading />;
   }
 
   if (!activeTab) {
@@ -70,9 +72,10 @@ const Portfolio = () => {
             onClick={() => setActiveTab(tab)}
             className={`
               relative pb-2 text-lg font-medium transition-all duration-300
-              ${activeTab === tab
-                ? "text-[#AF4C0F]"
-                : "text-gray-500 hover:text-[#AF4C0F]"
+              ${
+                activeTab === tab
+                  ? "text-[#AF4C0F]"
+                  : "text-gray-500 hover:text-[#AF4C0F]"
               }
             `}
           >
@@ -117,9 +120,9 @@ const Portfolio = () => {
                   src={image.src}
                   alt={image.alt}
                   className="w-full h-full"
-                   
                   onError={(e) => {
-                    e.target.src = 'https://placehold.co/600x400/E5E7EB/6B7280?text=Image+Error';
+                    e.target.src =
+                      "https://placehold.co/600x400/E5E7EB/6B7280?text=Image+Error";
                   }}
                 />
               </motion.div>

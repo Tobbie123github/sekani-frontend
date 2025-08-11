@@ -2,19 +2,19 @@ import { useState, useEffect, useRef } from "react";
 import { IoMdClose } from "react-icons/io";
 import { CgMenuRight } from "react-icons/cg";
 import { useAuth } from "../context/AuthContext";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import { IoColorPalette } from "react-icons/io5";
 import { motion } from "framer-motion";
 
 const menuVariants = {
   hidden: {
     x: "100%",
-    transition: { type: "spring", stiffness: 300, damping: 30 }
+    transition: { type: "spring", stiffness: 300, damping: 30 },
   },
   show: {
     x: 0,
-    transition: { ease: "easeInOut" }
-  }
+    transition: { ease: "easeInOut" },
+  },
 };
 
 const MobileNav = () => {
@@ -23,20 +23,19 @@ const MobileNav = () => {
   const menuRef = useRef(null); // ✅ ref for menu container
 
   const [darkMode, setDarkMode] = useState(() => {
-    return localStorage.getItem('theme') === 'dark';
+    return localStorage.getItem("theme") === "dark";
   });
 
   // Dark mode persistence
   useEffect(() => {
     if (darkMode) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
     } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
     }
   }, [darkMode]);
-
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -58,7 +57,10 @@ const MobileNav = () => {
 
   return (
     <nav className="text-primary dark:text-gray-300 xl:hidden">
-      <div onClick={() => setIsOpen(!isOpen)} className="text-3xl cursor-pointer">
+      <div
+        onClick={() => setIsOpen(!isOpen)}
+        className="text-3xl cursor-pointer"
+      >
         <CgMenuRight />
       </div>
 
@@ -86,12 +88,32 @@ const MobileNav = () => {
         </div>
 
         <ul className="h-full flex flex-col items-center justify-center gap-y-8 text-primary font-primary font-bold text-3xl">
-          <li><Link to="/" onClick={() => setIsOpen(false)}>Home</Link></li>
-          <li><Link to="/about" onClick={() => setIsOpen(false)}>About</Link></li>
-          <li><Link to="/portfolio" onClick={() => setIsOpen(false)}>Portfolio</Link></li>
-          <li><Link to="/contact" onClick={() => setIsOpen(false)}>Contact</Link></li>
+          <li>
+            <Link to="/" onClick={() => setIsOpen(false)}>
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to="/about" onClick={() => setIsOpen(false)}>
+              About
+            </Link>
+          </li>
+          <li>
+            <Link to="/portfolio" onClick={() => setIsOpen(false)}>
+              Portfolio
+            </Link>
+          </li>
+          <li>
+            <Link to="/contact" onClick={() => setIsOpen(false)}>
+              Contact
+            </Link>
+          </li>
           {user && (
-            <li><Link to="/dashboard" onClick={() => setIsOpen(false)}>Dashboard</Link></li>
+            <li>
+              <Link to="/dashboard" onClick={() => setIsOpen(false)}>
+                Dashboard
+              </Link>
+            </li>
           )}
         </ul>
       </motion.div>

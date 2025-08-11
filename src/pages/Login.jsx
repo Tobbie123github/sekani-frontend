@@ -2,12 +2,12 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Loading from "../components/Loading";
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from "../context/AuthContext";
 import { toast } from "react-toastify";
-import Logo from '../images/logo.png';
+import Logo from "../images/logo.png";
 
 export default function Login() {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const { login } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -27,8 +27,8 @@ export default function Login() {
       setLoading(false);
       setMessage("Login successful!");
       localStorage.setItem("token", res.data.token);
-       toast.success("Login successful!");
-     login(res.data.token, res.data.user); 
+      toast.success("Login successful!");
+      login(res.data.token, res.data.user);
       navigate("/dashboard");
     } catch (err) {
       setLoading(false);
@@ -44,11 +44,11 @@ export default function Login() {
   return (
     <>
       {loading && <Loading />}
-    
+
       <div className="flex items-center justify-center min-h-screen bg-background dark:bg-gray-900">
         <div className="bg-white p-8 rounded-lg shadow-lg w-96">
           <h2 className="text-2xl font-bold mb-6 text-center text-[#AF4C0F]">
-           <img src={Logo} alt="Logo" className="w-20 mx-auto" />
+            <img src={Logo} alt="Logo" className="w-20 mx-auto" />
           </h2>
 
           {/* {message && (
