@@ -33,24 +33,24 @@ const Header = () => {
         </h2>
 
         <nav className="hidden xl:flex gap-x-12">
-          <Link to="/" className="dark:text-gray-300 text-[#000000] hover:text-primary transition">
+          <Link to="/" className="dark:text-gray-300 text-[#000000] hover:text-[#B05015] transition">
             Home
           </Link>
           <Link
             to="/about"
-            className="text-[#000000] dark:text-gray-300 hover:text-primary transition"
+            className="text-[#000000] dark:text-gray-300 hover:text-[#B05015] transition"
           >
             About
           </Link>
           <Link
             to="/portfolio"
-            className="text-[#000000] dark:text-gray-300 hover:text-primary transition"
+            className="text-[#000000] dark:text-gray-300 hover:text-[#B05015] transition"
           >
             Portfolio
           </Link>
           <Link
             to="/contact"
-            className="text-[#000000] dark:text-gray-300 hover:text-primary transition"
+            className="text-[#000000] dark:text-gray-300 hover:text-[#B05015] transition"
           >
             Contact
           </Link>
