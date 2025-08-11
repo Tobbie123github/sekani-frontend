@@ -14,17 +14,17 @@ const Home = () => {
       className="section h-screen overflow-hidden "
     >
       <div className="md:container mx-auto h-full relative">
-        <div className="flex md:flex-row h-screen relative">
+        <div className="md:container flex md:flex-row h-screen relative">
           {/* Left content */}
           <motion.div
             initial={{ opacity: 0, y: "-50%" }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: "-50%" }}
             transition={transition1}
-            className="mt-[-15rem]  md:mt-0 md:ml-11 md:w-[45%] z-10 flex flex-col justify-center items-center md:items-start p-8"
+            className="flex flex-col items-center md:mt-[8rem]  mt-[7rem] w-[80%] mx-auto md:w-[50%] md:mx-0 md:items-start md:pl-10"
           >
             <h1 className="h1 dark:text-gray-300">
-              Capturing <br />
+              Capturing 
               Moments
             </h1>
             <p className="text-[16px] md:text-[19px] font-primary mb-4 md:mb-9  text-center md:text-start dark:text-gray-200">
