@@ -1,7 +1,7 @@
 import Header from './components/Header';
 import AnimRoutes from './components/AnimRoutes';
 
-import { HashRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import {AuthProvider} from './context/AuthContext';
 import { ToastContainer } from 'react-toastify';
 
