@@ -120,10 +120,10 @@ const Portfolio = () => {
                   src={image.src}
                   alt={image.alt}
                   className="w-full h-full"
-                  onError={(e) => {
-                    e.target.src =
-                      "https://placehold.co/600x400/E5E7EB/6B7280?text=Image+Error";
-                  }}
+                  // onError={(e) => {
+                  //   e.target.src =
+                  //     "https://placehold.co/600x400/E5E7EB/6B7280?text=Image+Error";
+                  // }}
                 />
               </motion.div>
             ))}

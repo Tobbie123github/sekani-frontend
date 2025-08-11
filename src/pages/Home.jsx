@@ -48,7 +48,7 @@ useEffect(() => {
               not just captured but crafterd into timeless stories
             </p>
 
-            <Link to="/portfolio" className="btn mt-2">
+            <Link to="/portfolio" className="btn mt-2 ">
               My Works <BiSolidArrowFromLeft className="ml-2 text-xl" />
             </Link>
           </motion.div>
@@ -59,7 +59,7 @@ useEffect(() => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -120 }}
             transition={transition1}
-            className="design2 md:block w-full top-[18rem] absolute right-0  md:top-0 md:w-[70%] lg:w-1/2 h-screen"
+            className="md:block w-full top-[19rem] absolute right-0  md:top-0 md:w-[70%] lg:w-1/2 h-screen"
           >
             <img
               src={sekani}

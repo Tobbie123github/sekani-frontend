@@ -148,7 +148,8 @@ const Dashboard = () => {
             >
               <div className="relative h-48 overflow-hidden">
                 <img
-                  src={item.images[imageIndexes[item._id] || 0]}
+                 loading="lazy"
+                  src={` ${item.images[imageIndexes[item._id] || 0]}?q=70&f=auto`}
                   alt={item.category}
                   className="w-full h-full object-cover transition-transform duration-300 ease-in-out"
                   onError={(e) => {
