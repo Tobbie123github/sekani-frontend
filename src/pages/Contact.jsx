@@ -1,10 +1,54 @@
-import { FaFacebook, FaWhatsapp, FaInstagram  } from "react-icons/fa";
+import { FaFacebook, FaWhatsapp, FaInstagram, FaMailBulk  } from "react-icons/fa";
 import ContactImg from '../images/freepik__upload__18606.png'
 import { motion } from "framer-motion";
 import {transition1} from '../../transitions';
+import { useState } from "react";
+import emailjs from '@emailjs/browser';
+import Loading from "../components/Loading";
+import { toast } from 'react-toastify';
+import Footer from "../components/Footer";
 
 const Contact = () => {
+ 
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    message: ""
+  });
+  
+  
+  const [loading, setLoading] = useState(false);
+
+  const submitContact = (e) =>{
+    e.preventDefault();
+
+    setLoading(true);
+
+    emailjs.send(import.meta.env.VITE_SERVICE_ID, import.meta.env.VITE_TEMPLATE_ID, formData, import.meta.env.VITE_PUBLIC_KEY)
+      .then((response) => {
+        //console.log('Email sent successfully:', response);
+        setLoading(false);
+        toast.success('Message sent successfully! We will get back to you soon.');
+        setFormData({
+          name: "",
+          message: "",
+          phone: ""
+        })
+      })
+      .catch((error) => {
+        console.error('Error sending email:', error);
+      });
+  }
+
+if (loading) {
+    return <Loading />
+  }
+
+
+
   return (
+
+    
     
     <motion.section
   
@@ -13,7 +57,7 @@ const Contact = () => {
   exit={{ opacity: 0, y: -120 }}
   transition={transition1}
 
-    className="section relative h-screen overflow-hidden">
+    className=" relative ">
         <div className="container mx-auto h-full">
           <div className=" flex flex-col lg:flex-row h-full items-center justify-start lg:pt-12 pt-24  gap-x-8 text-center lg:text-left">
           
@@ -26,38 +70,23 @@ const Contact = () => {
                   <p className="dark:text-gray-200 mb-12"> I would love to get suggestions from you!</p>
 
 
-                  <form className="">
+                  <form onSubmit={submitContact}>
                     
                     <div className="flex flex-col gap-y-10">
-                      <input type="text" placeholder="Your Name" className="outline-none dark:border-b-gray-300 border-b border-b-primary h-[60px] bg-transparent font-secondary w-full pl-3 placeholder:text-[#757879] " />
-                       <textarea type="text" placeholder="Your Message" className="outline-none border-b dark:border-b-gray-300 border-b-primary bg-transparent font-secondary w-full pl-3 placeholder:text-[#757879] " />
-                      
+                      <input value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} type="text" placeholder="Your Name" className="outline-none dark:border-b-gray-300 border-b border-b-primary h-[60px] bg-transparent font-secondary w-full pl-3 placeholder:text-[#757879] md:text-[20px] text-base" />
+                      <input value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} type="tel" placeholder="Your Phone Number" pattern="[0-9]*" className="outline-none dark:border-b-gray-300 border-b border-b-primary h-[60px] bg-transparent font-secondary w-full pl-3 placeholder:text-[#757879] md:text-[20px] text-base"/>
+                       <textarea value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} type="text" placeholder="Your Message" className="outline-none border-b dark:border-b-gray-300 border-b-primary bg-transparent font-secondary w-full pl-3 placeholder:text-[#757879] md:text-[20px] text-base" />
+
                     </div>
+                    <button className="btn mt-6">
+                      Send
+                    </button>
 
                   </form>
                   
                   {/* SOCIALS */}
 
-                  <div className='xl:flex mt-20 '>
-                        <ul className='flex gap-x-10'>
-                          <li className='dark:text-gray-300 text-4xl text-primary hover:text-secondary transition'>
-                            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer
-                  ">
-                              <FaFacebook />
-                            </a>
-                          </li>
-                          <li className='dark:text-gray-300 text-4xl text-primary hover:text-secondary transition'>
-                            <a href="https://www.whatsapp.com" target="_blank" rel="noopener noreferrer">
-                              <FaWhatsapp />
-                            </a>
-                          </li>
-                          <li className='dark:text-gray-300 text-4xl text-primary hover:text-secondary transition'>
-                            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-                              <FaInstagram />
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
+                 
 
                 </div>
 
@@ -67,8 +96,35 @@ const Contact = () => {
 
           </div>
 
+           <div className=' mt-16 items-center'>
+                        <ul className='flex gap-x-10 items-center justify-self-center'>
+                          <li className='dark:text-gray-300 text-4xl text-primary hover:text-secondary transition'>
+                            <a href="https://web.facebook.com/shalom.james.52" target="_blank" rel="noopener noreferrer
+                  ">
+                              <FaFacebook />
+                            </a>
+                          </li>
+                          <li className='dark:text-gray-300 text-4xl text-primary hover:text-secondary transition'>
+                            <a href="https://api.whatsapp.com/send?phone=8028020238" target="_blank" rel="noopener noreferrer">
+                              <FaWhatsapp />
+                            </a>
+                          </li>
+                          <li className='dark:text-gray-300 text-4xl text-primary hover:text-secondary transition'>
+                            <a href="https://www.instagram.com/becoming_sekani/" target="_blank" rel="noopener noreferrer">
+                              <FaInstagram />
+                            </a>
+                          </li>
 
+                          <li className='dark:text-gray-300 text-4xl text-primary hover:text-secondary transition'>
+                            <a href="mailto:bookasessionwithsekani@gmail.com" target="_blank" rel="noopener noreferrer">
+                              <FaMailBulk />
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
         </div>
+
+        <Footer />
 
     </motion.section>
   )

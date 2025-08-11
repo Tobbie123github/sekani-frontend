@@ -3,6 +3,8 @@ import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 import Loading from '../components/Loading';
 import { BiPlus } from 'react-icons/bi';
+import { FaAngleLeft } from "react-icons/fa";
+import { FaAngleRight } from "react-icons/fa";
 import { toast } from 'react-toastify';
 
 const Dashboard = () => {
@@ -150,17 +152,17 @@ const Dashboard = () => {
                   <>
                     <button
                       onClick={() => handlePrevImage(item._id)}
-                      className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition duration-300"
+                      className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-black bg-opacity-80 text-white p-2 rounded-full hover:bg-opacity-75 transition duration-300"
                       type="button"
                     >
-                      <i className="fas fa-chevron-left"></i>
+                      <i className="fas fa-chevron-left"><FaAngleLeft /></i>
                     </button>
                     <button
                       onClick={() => handleNextImage(item._id)}
-                      className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition duration-300"
+                      className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-black bg-opacity-80 text-white p-2 rounded-full hover:bg-opacity-75 transition duration-300"
                       type="button"
                     >
-                      <i className="fas fa-chevron-right"></i>
+                      <i className="fas fa-chevron-right"><FaAngleRight /></i>
                     </button>
                   </>
                 )}

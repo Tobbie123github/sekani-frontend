@@ -3,6 +3,7 @@ import sekani from '../images/sekani.png';
 import { motion } from "framer-motion";
 import {transition1} from '../../transitions';
 import { BiSolidArrowFromLeft} from "react-icons/bi";
+import Footer from '../components/Footer';
 const About = () => {
   return (
     <motion.section
@@ -10,11 +11,9 @@ const About = () => {
     animate={{opacity: 1, y: 0}}
     exit={{opacity: 0, y: '100%'}}
     transition={transition1}
-    className="h-screen overflow-hidden relative mt-10"
+    className="h-screen  relative mt-10"
     >
      <div className="container mx-auto pt-[80px] flex flex-col-reverse md:flex-row-reverse lg:flex-row h-full items-center justify-center  md:gap-x-24 text-center lg:pt-16">
-    
-    
 
     {/* IMAGE */}
     
@@ -50,6 +49,8 @@ const About = () => {
 
 
       </div>
+
+      <Footer />
       </motion.section>
   );
 }

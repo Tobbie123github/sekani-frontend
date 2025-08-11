@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import axios from 'axios';
 import './mansory.css';
 import Loading from '../components/Loading';
+import Footer from '../components/Footer';
 
 const Portfolio = () => {
   const [imagesByCategory, setImagesByCategory] = useState({});
@@ -56,7 +57,7 @@ const Portfolio = () => {
   const tabs = Object.keys(imagesByCategory);
 
   return (
-    <section className="py-12 mt-[5rem] px-4 max-w-7xl mx-auto min-h-screen">
+    <section className="py-12 mt-[5rem] px-4 max-w-7xl mx-auto ">
       <h2 className="dark:text-gray-300 h1 text-center mb-10 text-4xl">
         My Works
       </h2>
@@ -126,6 +127,8 @@ const Portfolio = () => {
           </Masonry>
         </motion.div>
       </AnimatePresence>
+
+      <Footer />
     </section>
   );
 };

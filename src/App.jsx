@@ -6,6 +6,7 @@ import {AuthProvider} from './context/AuthContext';
 import { ToastContainer } from 'react-toastify';
 
 
+
 const App = () => {
   return (
     <>
@@ -13,6 +14,7 @@ const App = () => {
       <AuthProvider>
         <Header />
         <AnimRoutes />
+       
          <ToastContainer 
         position="top-right" 
         autoClose={3000} 

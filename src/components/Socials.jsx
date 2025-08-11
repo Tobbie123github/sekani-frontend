@@ -7,7 +7,7 @@ const Socials = () => {
 
 
 const [darkMode, setDarkMode] = useState(() => {
-    // Load from localStorage (default to false if nothing saved)
+
     return localStorage.getItem('theme') === 'dark';
   });
 
@@ -27,22 +27,22 @@ const [darkMode, setDarkMode] = useState(() => {
   return (
     <div className='hidden xl:flex ml-24 items-center justify-center gap-x-6'>
       <ul className='flex gap-x-6 '>
-        <li className='text-3xl dark:text-gray-300 text-primary hover:text-secondary transition'>
-          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer
-">
-            <FaFacebook />
-          </a>
-        </li>
-        <li className='text-3xl dark:text-gray-300 text-primary hover:text-secondary transition'>
-          <a href="https://www.whatsapp.com" target="_blank" rel="noopener noreferrer">
-            <FaWhatsapp />
-          </a>
-        </li>
-        <li className='text-3xl dark:text-gray-300 text-primary hover:text-secondary transition'>
-          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-            <FaInstagram />
-          </a>
-        </li>
+       <li className='dark:text-gray-300 text-3xl text-primary hover:text-secondary transition'>
+                            <a href="https://web.facebook.com/shalom.james.52" target="_blank" rel="noopener noreferrer
+                  ">
+                              <FaFacebook />
+                            </a>
+                          </li>
+                          <li className='dark:text-gray-300 text-3xl text-primary hover:text-secondary transition'>
+                            <a href="https://api.whatsapp.com/send?phone=8028020238" target="_blank" rel="noopener noreferrer">
+                              <FaWhatsapp />
+                            </a>
+                          </li>
+                          <li className='dark:text-gray-300 text-3xl text-primary hover:text-secondary transition'>
+                            <a href="https://www.instagram.com/becoming_sekani/" target="_blank" rel="noopener noreferrer">
+                              <FaInstagram />
+                            </a>
+                          </li>
 
       
       </ul>
