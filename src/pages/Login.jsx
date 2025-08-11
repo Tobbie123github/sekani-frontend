@@ -4,7 +4,7 @@ import axios from "axios";
 import Loading from "../components/Loading";
 import { useAuth } from '../context/AuthContext';
 import { toast } from "react-toastify";
-
+import Logo from '../images/logo.png';
 
 export default function Login() {
   const navigate = useNavigate(); 
@@ -44,11 +44,11 @@ export default function Login() {
   return (
     <>
       {loading && <Loading />}
-
-      <div className="flex items-center justify-center min-h-screen bg-gray-100">
+    
+      <div className="flex items-center justify-center min-h-screen bg-background dark:bg-gray-900">
         <div className="bg-white p-8 rounded-lg shadow-lg w-96">
           <h2 className="text-2xl font-bold mb-6 text-center text-[#AF4C0F]">
-            Login
+           <img src={Logo} alt="Logo" className="w-20 mx-auto" />
           </h2>
 
           {/* {message && (
@@ -71,7 +71,7 @@ export default function Login() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#B05015]"
               />
             </div>
 
@@ -82,7 +82,7 @@ export default function Login() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#B05015]"
               />
             </div>
 
