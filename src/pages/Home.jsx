@@ -37,7 +37,7 @@ useEffect(() => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: "-50%" }}
             transition={transition1}
-            className="relative flex flex-col items-center md:mt-[8rem]  mt-[7rem] w-[80%] mx-auto md:w-[50%] md:mx-0 md:items-start md:pl-10"
+            className="z-10 flex flex-col items-center md:mt-[8rem]  mt-[7rem] w-[80%] mx-auto md:w-[50%] md:mx-0 md:items-start md:pl-10"
           >
             <h1 className="h1 dark:text-gray-300 text-center md:text-left">
               Capturing 
