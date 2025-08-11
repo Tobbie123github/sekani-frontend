@@ -23,7 +23,7 @@ const Home = () => {
             transition={transition1}
             className="flex flex-col items-center md:mt-[8rem]  mt-[7rem] w-[80%] mx-auto md:w-[50%] md:mx-0 md:items-start md:pl-10"
           >
-            <h1 className="h1 dark:text-gray-300">
+            <h1 className="h1 dark:text-gray-300 text-center md:text-left">
               Capturing 
               Moments
             </h1>
