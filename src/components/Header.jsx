@@ -3,10 +3,11 @@ import React, { useState, useEffect } from 'react';
 import MobileNav from './MobileNav';
 import Logo from '../images/logo.png';
 import { Link } from 'react-router-dom';
-
+import { useAuth } from "../context/AuthContext";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
+  const { user } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,6 +55,9 @@ const Header = () => {
           >
             Contact
           </Link>
+          {user && (
+            <li><Link to="/dashboard" className="text-[#000000] dark:text-gray-300 hover:text-[#B05015] transition">Dashboard</Link></li>
+          )}
         </nav>
       </div>
 
