@@ -73,7 +73,7 @@ if (loading) {
                   <form onSubmit={submitContact}>
                     
                     <div className="flex flex-col gap-y-10">
-                      <input value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} type="text" placeholder="Your Name" className="outline-none dark:border-b-gray-300 border-b border-b-primary h-[60px] bg-transparent font-secondary w-full pl-3 placeholder:text-[#757879] md:text-[20px] text-base" />
+                      <input value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} type="text" placeholder="Your Name" className="outline-none dark:border-b-gray-300 border-b border-b-primary h-[60px] bg-transparent font-secondary w-full pl-3 placeholder:text-[#757879] md:text-[20px] text-base dark:text-gray-400 text-black" />
                       <input value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} type="tel" placeholder="Your Phone Number" pattern="[0-9]*" className="outline-none dark:border-b-gray-300 border-b border-b-primary h-[60px] bg-transparent font-secondary w-full pl-3 placeholder:text-[#757879] md:text-[20px] text-base"/>
                        <textarea value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} type="text" placeholder="Your Message" className="outline-none border-b dark:border-b-gray-300 border-b-primary bg-transparent font-secondary w-full pl-3 placeholder:text-[#757879] md:text-[20px] text-base" />
 
